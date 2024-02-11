@@ -8,6 +8,7 @@ namespace CountDown
 {
     public class CountDownPlugin : IPluginWithScheduler
     {
+        int interval = 0;
         IScheduler _scheduler;
 
         public CountDownPlugin(IScheduler scheduler) => _scheduler = scheduler;
@@ -16,8 +17,8 @@ namespace CountDown
         public string Id => _Id;
 
         public PluginOutput Execute(PluginInput input)
-        {
-            var interval = int.Parse(input.Message);
+        {   if(input.Message!="")
+                interval = int.Parse(input.Message);
             _scheduler.Schedule(TimeSpan.FromSeconds(interval), Id, "");
             return new PluginOutput("Countdown started.");
 
