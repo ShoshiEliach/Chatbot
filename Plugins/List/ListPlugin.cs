@@ -12,6 +12,7 @@ namespace ListPlugin
 
     public class ListPlugin : IPlugin
     {
+        int i=0;
         public static string _Id = "list";
         public string Id => _Id;
 
