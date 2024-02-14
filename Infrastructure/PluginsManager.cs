@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hexadecimal;
 
 namespace Infrastructure
 {
@@ -49,7 +50,10 @@ namespace Infrastructure
             {
                 return new CountWordPlugin();
             }
-            else
+            else if (id == HexadecimalPlugin._Id)
+            {
+                return new HexadecimalPlugin();
+            }
 
             {
                 throw new NotImplementedException();
@@ -64,7 +68,8 @@ namespace Infrastructure
             EchoPlugin._Id,
             ListPlugin.ListPlugin._Id,
             CountTheWordsPlugin._Id,
-            CountWordPlugin._Id
+            CountWordPlugin._Id,
+            HexadecimalPlugin._Id
         };
     }
 }
